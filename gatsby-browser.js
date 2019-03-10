@@ -1,4 +1,3 @@
-// gatsby-browser.js
 import React from 'react';
 
 // Forked Gatsby default to not remount on switches between
@@ -27,8 +26,7 @@ function countSlashes(url) {
 function shouldPreserveScrollBetween(oldPathname, newPathname) {
   // Don't reset scroll when switching within a post.
   // TODO: this is kinda gross and flaky.
-  if (
-    // /lang/stuff/ -> /stuff/
+  return (
     (oldPathname.indexOf(newPathname) > 0 &&
       countSlashes(oldPathname) === 3 &&
       countSlashes(newPathname) === 2) ||
@@ -42,10 +40,7 @@ function shouldPreserveScrollBetween(oldPathname, newPathname) {
       // /stuff/ === /stuff/
       oldPathname.substr(oldPathname.substr(1).indexOf('/') + 1) ===
         newPathname.substr(newPathname.substr(1).indexOf('/') + 1))
-  ) {
-    return true;
-  }
-  return false;
+  );
 }
 
 // Forked to not update scroll on transitions between translations.

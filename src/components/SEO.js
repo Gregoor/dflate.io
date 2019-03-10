@@ -35,7 +35,7 @@ const SEO = ({ meta, image, title, description, slug }) => (
                 title,
               }
             : {
-                title: `${siteMetadata.title} — Gregor's mindshare`,
+                title: siteMetadata.title,
               })}
           meta={[
             {

@@ -92,7 +92,6 @@ class Layout extends React.Component {
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              alignItems: 'center',
               marginBottom: '2.625rem',
             }}
           >

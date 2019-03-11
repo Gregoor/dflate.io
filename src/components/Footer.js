@@ -14,7 +14,7 @@ const Footer = () => (
       </a>
     </div>
     <a
-      href="https://mobile.twitter.com/dan_abramov"
+      href="https://mobile.twitter.com/gr__or"
       target="_blank"
       rel="noopener noreferrer"
     >

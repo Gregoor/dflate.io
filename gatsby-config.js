@@ -98,17 +98,17 @@ module.exports = {
                   .replace(/src="\//g, `src="${siteUrl}/`)
                   .replace(/"\/static\//g, `"${siteUrl}/static/`)
                   .replace(/,\s*\/static\//g, `,${siteUrl}/static/`);
+                const url = siteUrl + '/' + slug;
                 const postText = `
-                  <div style="margin-top=55px; font-style: italic;">(This is an article posted to my blog at dflate.io. You can read it online by <a href="${siteUrl +
-                    slug}">clicking here</a>.)</div>
+                  <div style="margin-top=55px; font-style: italic;">(This is an article posted to my blog at dflate.io. You can read it online by <a href="${url}">clicking here</a>.)</div>
                 `;
 
                 return {
                   ...frontmatter,
                   description: excerpt,
                   date: frontmatter.date,
-                  url: siteUrl + slug,
-                  guid: siteUrl + slug,
+                  url,
+                  guid: url,
                   custom_elements: [{ 'content:encoded': html + postText }],
                 };
               }),

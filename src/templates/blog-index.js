@@ -41,7 +41,6 @@ const BlogIndexTemplate = ({ data, location }) => (
         </article>
       ))}
     </main>
-    <Footer />
   </Layout>
 );
 

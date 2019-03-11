@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { rhythm, scale } from '../utils/typography';
+import Footer from './Footer';
 import ThemeToggle from './ThemeToggle';
 
 class Layout extends React.Component {
@@ -110,6 +111,7 @@ class Layout extends React.Component {
             )}
           </header>
           {children}
+          <Footer />
         </div>
       </div>
     );

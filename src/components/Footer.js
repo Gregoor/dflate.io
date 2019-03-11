@@ -4,13 +4,13 @@ import { rhythm } from '../utils/typography';
 const Footer = () => (
   <footer
     style={{
-      marginTop: rhythm(2.5),
+      marginTop: rhythm(1.5),
       paddingTop: rhythm(1),
     }}
   >
     <div style={{ float: 'right' }}>
       <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
-        rss
+        RSS
       </a>
     </div>
     <a
@@ -18,16 +18,24 @@ const Footer = () => (
       target="_blank"
       rel="noopener noreferrer"
     >
-      twitter
-    </a>{' '}
-    &bull;{' '}
+      Twitter
+    </a>
+    {' / '}
     <a
       href="https://github.com/Gregoor"
       target="_blank"
       rel="noopener noreferrer"
     >
-      github
-    </a>{' '}
+      GitHub
+    </a>
+    {' / '}
+    <a
+      href="mailto:gregorwbr@gmail.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      E-Mail
+    </a>
   </footer>
 );
 

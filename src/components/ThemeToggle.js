@@ -5,12 +5,20 @@ import './ThemeToggle.css';
 export default function ThemeToggle(props) {
   return (
     <div className="theme-toggle">
-      <div style={{ transform: 'scaleX(-1)' }}>
-        {props.checked ? (
-          <div style={{ position: 'relative', right: 1 }}>🌜</div>
-        ) : (
-          '🌞'
-        )}
+      <div
+        className={'horizon ' + (props.checked ? 'flip' : '')}
+        style={{ position: 'relative', top: 20 }}
+      >
+        <div style={{ marginBottom: 10 }}>🌞</div>
+        <div
+          style={{
+            position: 'relative',
+            left: 1,
+            transform: 'scaleX(-1) rotateZ(180deg)',
+          }}
+        >
+          🌜
+        </div>
       </div>
       <input type="checkbox" {...props} />
     </div>

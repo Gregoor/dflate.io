@@ -7,6 +7,16 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
+
+  & .horizon {
+    will-change: transform;
+    transition: transform 300ms linear;
+
+    &.flip {
+      transform: rotateZ(180deg);
+    }
+  }
 
   & input {
     position: absolute;
@@ -16,5 +26,9 @@
     height: 100%;
     appearance: none;
     cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
   }
 }

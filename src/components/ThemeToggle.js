@@ -20,7 +20,11 @@ export default function ThemeToggle(props) {
           🌜
         </div>
       </div>
-      <input type="checkbox" {...props} />
+      <input
+        type="checkbox"
+        aria-label={'Turn page ' + (props.checked ? 'light' : 'dark')}
+        {...props}
+      />
     </div>
   );
 }

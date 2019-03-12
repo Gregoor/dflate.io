@@ -1,6 +1,6 @@
 ---
 title: 'Svelte: compiled React-conciliation'
-date: '2019-01-26'
+date: '2019-03-10'
 ---
 I have been meaning to look at [Svelte](https://svelte.technology) for a while, it being the most exciting development in the frontend library space since [React](https://reactjs.org/). Whereas other libraries that came after React mostly remixed its API and moved away from more controversial features, Svelte did something I have not seen before: It figures out how changes in your components' state affect their view **at compile time**. 
 

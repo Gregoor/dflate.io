@@ -104,7 +104,7 @@ The same example in Svelte:
 <p>Hello {name || 'stranger'}!</p>
 ```
 
-*Source: [Svelte REPL](https://v3.svelte.technology/repl?version=3.0.0-beta.10&demo=binding-input-text)*
+*Source: [Svelte REPL](https://svelte.dev/examples#text-inputs)*
 
 On the surface level we can see that there is a lot less code here, due to data-binding in the form of  `bind:value` , which in this case combines state declaration and change listening.
 

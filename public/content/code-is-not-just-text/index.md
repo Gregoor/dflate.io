@@ -4,13 +4,13 @@ date: '2017-03-07'
 ---
 *[I originally published this on Medium in 2017](https://medium.com/@grgtwt/code-is-not-just-text-1082981ae27f),
 but since it has become painful to consume for me to use their site, I decided to move it to (and
-create) my own blog, very much based on Dan Abramov's blog [Overreacted](https://overreacted.io/).*
+create) my own blog.
 
 *** 
 
 Let’s look at some numbers:
 
-![Usage of different editors](./editors-plot.png)
+![Usage of different editors](/content/code-is-not-just-text/editors-plot.png)
 *Usage of Development Environments (Source: I plotted it with data from the
 [Stack Overflow Developer Survey 2016](http://stackoverflow.com/research/developer-survey-2016).
 Keep in mind that people use many tools, hence the numbers add up to more than 100%)*
@@ -101,7 +101,7 @@ Different colors indicate different statement types, and they rely heavily on
 mouse interaction. Both are educational tools and not meant for production
 usage.
 
-![](./scratch.png)
+![](/content/code-is-not-just-text/scratch.png)
 
 There are multiple things that make these language impractical for everyday
 coding tasks. I already casually mentioned the lack of keyboard support, but

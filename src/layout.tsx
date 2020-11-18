@@ -23,7 +23,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div>
         {[
-          ["https://mobile.twitter.com/gr__or", "Twitter"],
+          ["https://mobile.twitter.com/3gregor3", "Twitter"],
           ["https://github.com/Gregoor", "GitHub"],
           ["mailto:gregorwbr@gmail.com", "E-Mail"],
         ].map(([href, label], i, arr) => (

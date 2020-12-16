@@ -6,7 +6,7 @@ import styles from "./layout.module.css";
 
 export function Header() {
   const router = useRouter();
-  const HomeElement = router.asPath === "/" ? "h1" : "h2";
+  const HomeHeading = router.asPath === "/" ? "h1" : "h2";
 
   const [hasNewlyArrived, setHasNewlyArrived] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
@@ -16,7 +16,7 @@ export function Header() {
   const animationTimeRef = useRef(0);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setHasNewlyArrived(false), 1000);
+    const timeout = setTimeout(() => setHasNewlyArrived(false), 1500);
     return () => {
       clearTimeout(timeout);
     };
@@ -45,7 +45,7 @@ export function Header() {
     let animationFrame: number;
 
     function draw(time: number | null = null) {
-      const now = animationTimeRef.current / 200;
+      const now = animationTimeRef.current / 150;
       if (time) {
         animationTimeRef.current += time - lastFrameTime;
         lastFrameTime = time;
@@ -95,7 +95,7 @@ export function Header() {
           onMouseLeave={() => setIsHovering(false)}
         >
           <canvas ref={canvasRef} className={styles["logo-canvas"]} />
-          <HomeElement>dflate.io</HomeElement>
+          <HomeHeading style={{ marginTop: "1%" }}>dflate.io</HomeHeading>
         </a>
       </Link>
     </header>

@@ -11,14 +11,12 @@
 .home-link {
   display: flex;
   flex-direction: row;
-  align-items: center;
   text-decoration: none;
   color: var(--text-normal);
 }
 
 .logo-canvas {
-  /*border: 1px solid red;*/
-  margin-right: 10px;
+  margin-right: 15px;
   height: 0;
 }
 

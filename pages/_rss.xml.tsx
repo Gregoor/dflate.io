@@ -41,6 +41,6 @@ export async function getStaticProps() {
   return { props: { xml } };
 }
 
-export default function ({ xml }: StaticProps<typeof getStaticProps>) {
+export default function RssXml({ xml }: StaticProps<typeof getStaticProps>) {
   return `${xml}`;
 }

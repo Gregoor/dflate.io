@@ -4,8 +4,6 @@ import Layout from "../src/layout";
 import { CONTENT_PATH, parseContent, StaticProps } from "../src/utils";
 import Head from "next/head";
 
-export const config = { unstable_runtimeJS: false };
-
 export async function getStaticPaths() {
   const folderNames = fs.readdirSync(CONTENT_PATH);
   return {
@@ -23,12 +21,7 @@ export async function getStaticProps({ params: { slug } }) {
   };
 }
 
-export default ({
-  slug,
-  title,
-  date,
-  html,
-}: StaticProps<typeof getStaticProps>) => (
+export default ({ title, html }: StaticProps<typeof getStaticProps>) => (
   <Layout>
     <Head>
       <title>{title}</title>

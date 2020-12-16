@@ -1,16 +1,100 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React from "react";
+import { Router, useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
 import styles from "./layout.module.css";
 
 export function Header() {
   const router = useRouter();
   const HomeElement = router.asPath === "/" ? "h1" : "h2";
+
+  const [hasNewlyArrived, setHasNewlyArrived] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isRouting, setIsRouting] = useState(false);
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationTimeRef = useRef(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setHasNewlyArrived(false), 1000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  useEffect(() => {
+    const TOTAL = 5;
+    const LINE_WIDTH = 1.5;
+
+    const canvas = canvasRef.current;
+
+    const size = canvas.parentElement!.offsetHeight;
+    const center = size / 2;
+
+    canvas.height = canvas.width = size;
+    Object.assign(canvas.style, {
+      width: `${size}px`,
+      height: `${size}px`,
+    });
+
+    const ctx = canvas.getContext("2d");
+    ctx.strokeStyle = "hsl(0,0%, 20%)";
+    ctx.lineWidth = LINE_WIDTH;
+
+    let lastFrameTime = performance.now();
+    let animationFrame: number;
+
+    function draw(time: number | null = null) {
+      const now = animationTimeRef.current / 200;
+      if (time) {
+        animationTimeRef.current += time - lastFrameTime;
+        lastFrameTime = time;
+      }
+
+      ctx.clearRect(0, 0, size, size);
+
+      for (let i = 0; i < TOTAL; i++) {
+        const radius = Math.max(size - ((now * i) % size) - 2 * LINE_WIDTH, 0);
+        ctx.beginPath();
+        ctx.arc(center, center, radius / 2, 0, 2 * Math.PI);
+        ctx.stroke();
+      }
+
+      if (isRouting || isHovering || hasNewlyArrived) {
+        animationFrame = requestAnimationFrame(draw);
+      }
+    }
+
+    draw();
+
+    const start = () => {
+      setIsRouting(true);
+      draw();
+    };
+    const stop = () => {
+      setIsRouting(false);
+    };
+
+    Router.events.on("routeChangeStart", start);
+    Router.events.on("routeChangeComplete", stop);
+    Router.events.on("routeChangeError", stop);
+    return () => {
+      Router.events.off("routeChangeStart", start);
+      Router.events.off("routeChangeComplete", stop);
+      Router.events.off("routeChangeError", stop);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [isRouting, isHovering, hasNewlyArrived]);
+
   return (
-    <header>
+    <header className={styles.header}>
       <Link href="/">
-        <a className={styles["home-link"]}>
+        <a
+          className={styles["home-link"]}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
+          <canvas ref={canvasRef} className={styles["logo-canvas"]} />
           <HomeElement>dflate.io</HomeElement>
         </a>
       </Link>
@@ -45,7 +129,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className={styles.layout}>
       <Header />
       <main>{children}</main>
-      <br />
       <Footer />
     </div>
   );

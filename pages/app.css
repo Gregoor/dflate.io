@@ -2,7 +2,7 @@ body {
   --blue: #8bc7ff;
   --bg: #ffffff;
   --header: var(--blue);
-  --text-normal: #222;
+  --text-normal: #333333;
   --text-title: #222;
   --text-link: #6692bb;
   --hr: hsla(0, 0%, 0%, 0.2);
@@ -36,6 +36,8 @@ h3,
 h4,
 h5,
 h6 {
+  padding: 0;
+  margin: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 

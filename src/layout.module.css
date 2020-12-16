@@ -3,12 +3,27 @@
   max-width: 700px;
 }
 
+.header {
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+
 .home-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   text-decoration: none;
   color: var(--text-normal);
 }
 
+.logo-canvas {
+  /*border: 1px solid red;*/
+  margin-right: 10px;
+  height: 0;
+}
+
 .footer {
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
 }

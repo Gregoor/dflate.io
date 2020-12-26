@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import unified from "unified";
 import rehypeAutolink from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
+import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
 import rehypePrism from "@mapbox/rehype-prism";
 import remarkParse from "remark-parse";
@@ -31,9 +32,10 @@ export async function parseContent(slug) {
     html: (
       await unified()
         .use(remarkParse)
-        .use(remark2rehype)
+        .use(remark2rehype, { allowDangerousHtml: true })
         .use(rehypePrism)
         .use(rehypeSlug)
+        .use(rehypeRaw)
         .use(rehypeAutolink, { behavior: "wrap" })
         .use(rehypeStringify)
         .process(content)

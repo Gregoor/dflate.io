@@ -135,6 +135,6 @@ Other libraries seem to have been inspired by Svelte as well: [Stencil](https://
 
 Another thing the React team is investigating is perceived performance and I think this might be an area where they are still ahead of the curve. Their "recent" [rearchitecting efforts](https://github.com/acdlite/react-fiber-architecture) will make React apps more responsive even while heavy UI changes are happening. As a bonus it will make developers' lives easier when working with asynchronous code. If you want to see it in action, watch this talk:
 
-`youtube: nLF0n9SACd4`
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/nLF0n9SACd4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 What lead me to write this, was learning about Rust and its powerful macro system. Macros "are a way of writing code that writes other code" and in the case of Rust, the generated code is not only syntactically correct, but also type-checked. I am curious if something like Svelte could be implemented using only macros, so please reach out to me if you have some thoughts on that.

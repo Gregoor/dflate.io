@@ -20,6 +20,19 @@
   height: 0;
 }
 
+.blogs {
+  margin: 0 0 15px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.blog {
+  white-space: nowrap;
+}
+
 .footer {
   padding: 10px 0;
   display: flex;

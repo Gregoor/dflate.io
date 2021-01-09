@@ -38,7 +38,11 @@ export function Header() {
     });
 
     const ctx = canvas.getContext("2d");
-    ctx.strokeStyle = "hsl(0,0%, 20%)";
+    ctx.strokeStyle =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "hsl(0,0%, 80%)"
+        : "hsl(0,0%, 20%)";
     ctx.lineWidth = LINE_WIDTH;
 
     let lastFrameTime = performance.now();
@@ -124,11 +128,58 @@ export function Footer() {
   );
 }
 
+function Links({ title, links }: { title: string; links: [string, string][] }) {
+  return (
+    <>
+      <h4>{title}</h4>
+      <ul className={styles.blogs}>
+        {links.map(([label, url]) => (
+          <a
+            key={label}
+            className={styles.blog}
+            href={"https://" + url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {label}
+          </a>
+        ))}
+      </ul>
+    </>
+  );
+}
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles.layout}>
       <Header />
       <main>{children}</main>
+
+      <hr style={{ margin: "20px 0" }} />
+
+      <aside>
+        <Links
+          title="Friends & Colleagues"
+          links={[
+            ["Hidde", "hiddedevries.nl"],
+            ["Jonas", "jonasbrinkhoff.com"],
+            ["Marianna", "psychonautgirl.space"],
+            ["Reuben", "reub.in"],
+            ["Stephan", "hutmachergass.de/hmg/steffsblog/"],
+          ]}
+        />
+
+        <Links
+          title="Other blogs I read"
+          links={[
+            ["Alexis King", "lexi-lambda.github.io"],
+            ["FasterThanLime", "fasterthanli.me"],
+            ["Melting Asphalt", "meltingasphalt.com"],
+            ["Slate Star Codex", "slatestarcodex.com"],
+            ["Everything Studies", "everythingstudies.com"],
+          ]}
+        />
+      </aside>
       <Footer />
     </div>
   );

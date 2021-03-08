@@ -10,7 +10,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
     "gray-matter": "^4.0.2",
-    "next": "10.0.3",
+    "next": "10.0.8",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "rehype-autolink-headings": "^5.0.1",
